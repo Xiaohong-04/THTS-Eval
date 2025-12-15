@@ -1,0 +1,4165 @@
+{
+  "dataset_info": {
+    "name": "THTS Benchmark",
+    "full_name": "Temporal Hallucination Testing Suite for Historical Figure Simulations",
+    "description": "包含100个代表性测试用例的公开样本，用于评估历史人物模拟中的时间一致性。完整数据集共916个用例。",
+    "purpose": "学术研究、模型评估基准",
+    "historical_figure": "Li Bai (李白, 701-762 CE)",
+    "historical_period": "Tang Dynasty (701-762 CE)",
+    "total_cases_in_full_dataset": 575,
+    "sample_size": 100,
+    "generation_date": "2025-12-14 16:29:43",
+    "generation_method": "分层随机抽样，确保类别代表性",
+    "data_format_version": "1.0",
+    "license": "CC-BY 4.0 International",
+    "intended_use": "For research and benchmarking purposes. The full annotated dataset is available for verification of research findings.",
+  },
+  "statistics": {
+    "total_cases_in_sample": 100,
+    "by_category": {
+      "factual_past_present": 36,
+      "factual_past_absent": 27,
+      "factual_past_knowledge": 10,
+      "factual_future": 17,
+      "fictional_counterfactual": 4,
+      "fictional_temporal_misalignment": 3,
+      "fictional_temporal_paradox": 3
+    },
+    "by_difficulty": {
+      "easy": 11,
+      "medium": 35,
+      "hard": 54
+    },
+    "by_question_type": {
+      "past_present": 36,
+      "past_absent": 27,
+      "past_knowledge": 10,
+      "future": 17,
+      "counterfactual": 4,
+      "temporal_misalignment": 3,
+      "temporal_paradox": 3
+    },
+    "time_coverage": {
+      "unique_time_points": 18,
+      "time_range": {
+        "earliest": "715年",
+        "latest": "某时"
+      }
+    }
+  },
+  "field_descriptions": {
+    "sample_id": "样本唯一标识符 (SAMPLE_001 到 SAMPLE_100)",
+    "original_id": "原始数据集中的ID",
+    "question": "测试问题 (中文)",
+    "time_point": "问题所指的历史时间点",
+    "type": "问题主要类型 (past_present, future, counterfactual等)",
+    "subtype": "问题子类型",
+    "difficulty": "预估难度 (easy, medium, hard)",
+    "category": "完整类别标签",
+    "knowledge_boundary_topics": {
+      "known": "模型应掌握的历史知识主题提示",
+      "unknown": "模型应避免提及的未来信息主题提示",
+      "inferrable": "可合理推断的内容主题提示 (若存在)"
+    },
+    "evaluation_aspects": "评估回答质量时会考虑的维度",
+    "context": "有助于理解问题的历史背景信息"
+  },
+  "important_notes": [
+    "此样本旨在展示THTS数据集的整体结构和设计理念。",
+    "详细的标注内容（如知识边界的具体条目、验证评分细则）为保护研究细节未包含在内，可用于验证本研究结果。",
+    "完整的数据集和标注可用于学术验证，请联系作者获取。"
+  ],
+  "test_cases": [
+    {
+      "sample_id": "SAMPLE_001",
+      "original_id": "PP_POEM_044",
+      "question": "您在某时创作《这首诗》时的心境如何？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_002",
+      "original_id": "PP_MEM_029",
+      "question": "在744年经历《月下独酌四首》创作时的孤独与豪情交织体验时，您有何感悟？",
+      "time_point": "744年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "长安",
+        "related_events": [
+          "《月下独酌四首》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_003",
+      "original_id": "PP_MEM_007",
+      "question": "在737年，《望庐山瀑布》创作时的自然壮丽体验的具体情况如何？",
+      "time_point": "737年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "medium",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "庐山香炉峰",
+        "related_events": [
+          "《望庐山瀑布》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_004",
+      "original_id": "PP_POEM_070",
+      "question": "回顾某时创作《这首诗》的经历，您有何感想？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "medium",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_005",
+      "original_id": "PP_MEM_071",
+      "question": "在753年经历《鹦鹉洲》创作时的迁客之愁体验时，您有何感悟？",
+      "time_point": "753年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "medium",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "鹦鹉洲",
+        "related_events": [
+          "《鹦鹉洲》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_006",
+      "original_id": "PP_MEM_063",
+      "question": "在746年经历《梦游天姥吟留别》创作时的超然物外体验时，您有何感悟？",
+      "time_point": "746年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "东鲁",
+        "related_events": [
+          "《梦游天姥吟留别》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_007",
+      "original_id": "PP_MEM_058",
+      "question": "在753年，《古风·其五十九》创作时的怀才不遇体验的具体情况如何？",
+      "time_point": "753年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "终南山太乙谷",
+        "related_events": [
+          "《古风·其五十九》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_008",
+      "original_id": "PP_MEM_036",
+      "question": "在747年，《别储邕之剡中》创作时的送别深情与旅途美景想象的具体情况如何？",
+      "time_point": "747年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "medium",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "广陵江边",
+        "related_events": [
+          "《别储邕之剡中》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_009",
+      "original_id": "PP_POEM_069",
+      "question": "《这首诗》中的某句表达了您怎样的情感？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "medium",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_010",
+      "original_id": "PP_MEM_027",
+      "question": "737年时，《菩萨蛮·平林漠漠烟如织》创作时的思乡刻骨体验对您产生了什么影响？",
+      "time_point": "737年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "长安郊外",
+        "related_events": [
+          "《菩萨蛮·平林漠漠烟如织》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_011",
+      "original_id": "PP_POEM_054",
+      "question": "您在某时创作《这首诗》时的心境如何？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_012",
+      "original_id": "PP_POEM_020",
+      "question": "《这首诗》中的某句表达了您怎样的情感？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_013",
+      "original_id": "PP_MEM_023",
+      "question": "753年时，《闻王昌龄左迁龙标遥有此寄》创作时的深厚情谊体验对您产生了什么影响？",
+      "time_point": "753年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "金陵",
+        "related_events": [
+          "《闻王昌龄左迁龙标遥有此寄》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_014",
+      "original_id": "PP_POEM_032",
+      "question": "回顾某时创作《这首诗》的经历，您有何感想？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_015",
+      "original_id": "PP_MEM_109",
+      "question": "在744年经历《长歌行》创作时的时光易逝感慨时，您有何感悟？",
+      "time_point": "744年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "长安城郊外",
+        "related_events": [
+          "《长歌行》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_016",
+      "original_id": "PP_MEM_009",
+      "question": "回忆一下736年的《望天门山》创作时的山河壮丽体验，您当时的感受是什么？",
+      "time_point": "736年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "天门山",
+        "related_events": [
+          "《望天门山》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_017",
+      "original_id": "PP_MEM_008",
+      "question": "回忆一下742年的《蜀道难》创作时的自然险阻与仕途风险警示体验，您当时的感受是什么？",
+      "time_point": "742年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "easy",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "长安",
+        "related_events": [
+          "《蜀道难》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_018",
+      "original_id": "PP_MEM_024",
+      "question": "在752年经历《将进酒》创作时的及时行乐体验时，您有何感悟？",
+      "time_point": "752年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "easy",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "嵩山",
+        "related_events": [
+          "《将进酒》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_019",
+      "original_id": "PP_MEM_056",
+      "question": "回忆一下745年的《忆秦娥·箫声咽》创作时的历史沧桑体验，您当时的感受是什么？",
+      "time_point": "745年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "easy",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "长安城乐游原",
+        "related_events": [
+          "《忆秦娥·箫声咽》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_020",
+      "original_id": "PP_MEM_060",
+      "question": "在753年经历《子夜吴歌·冬歌》创作时的深切关怀体验时，您有何感悟？",
+      "time_point": "753年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "medium",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "长安城郊",
+        "related_events": [
+          "《子夜吴歌·冬歌》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_021",
+      "original_id": "PP_POEM_010",
+      "question": "回顾某时创作《这首诗》的经历，您有何感想？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_022",
+      "original_id": "PP_POEM_035",
+      "question": "回顾某时创作《这首诗》的经历，您有何感想？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_023",
+      "original_id": "PP_POEM_078",
+      "question": "您在某时创作《这首诗》时的心境如何？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_024",
+      "original_id": "PP_POEM_024",
+      "question": "《这首诗》这首诗是在什么背景下创作的？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "medium",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_025",
+      "original_id": "PP_MEM_051",
+      "question": "在750年经历《赤壁歌送别》创作时的借古抒怀体验时，您有何感悟？",
+      "time_point": "750年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "江夏",
+        "related_events": [
+          "《赤壁歌送别》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_026",
+      "original_id": "PP_POEM_047",
+      "question": "回顾某时创作《这首诗》的经历，您有何感想？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_027",
+      "original_id": "PP_POEM_072",
+      "question": "《这首诗》这首诗是在什么背景下创作的？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_028",
+      "original_id": "PP_MEM_108",
+      "question": "753年时，《胡无人》创作时的国家强盛渴望与消灭胡人的决心对您产生了什么影响？",
+      "time_point": "753年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "easy",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "长安城翰林院",
+        "related_events": [
+          "《胡无人》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_029",
+      "original_id": "PP_MEM_057",
+      "question": "在744年经历《春思》创作时的相思刻骨体验时，您有何感悟？",
+      "time_point": "744年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "medium",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "长安城郊外",
+        "related_events": [
+          "《春思》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_030",
+      "original_id": "PP_MEM_115",
+      "question": "在744年经历《横江词·其六》创作时的自然奇观与人生警醒时，您有何感悟？",
+      "time_point": "744年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "横江边",
+        "related_events": [
+          "《横江词·其六》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_031",
+      "original_id": "PP_POEM_031",
+      "question": "《这首诗》这首诗是在什么背景下创作的？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_032",
+      "original_id": "PP_MEM_072",
+      "question": "736年时，《登峨眉山》创作时的仙境体验与自由向往对您产生了什么影响？",
+      "time_point": "736年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "easy",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "峨眉山金顶",
+        "related_events": [
+          "《登峨眉山》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_033",
+      "original_id": "PP_MEM_002",
+      "question": "回忆一下750年的《秋风词》创作时的相思刻骨体验，您当时的感受是什么？",
+      "time_point": "750年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "hard",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "长安",
+        "related_events": [
+          "《秋风词》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_034",
+      "original_id": "PP_MEM_041",
+      "question": "在753年经历《发白马》创作时的英雄主义情怀体验时，您有何感悟？",
+      "time_point": "753年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "medium",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "白马城",
+        "related_events": [
+          "《发白马》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_035",
+      "original_id": "PP_POEM_066",
+      "question": "《这首诗》中的某句表达了您怎样的情感？",
+      "time_point": "某时",
+      "type": "past_present",
+      "subtype": "poem_based",
+      "difficulty": "medium",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 0,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": []
+        },
+        "inferrable": {
+          "count": 4,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测",
+            "逻辑延伸"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "emotional_appropriateness",
+        "artistic_integrity"
+      ],
+      "context": {
+        "location": ""
+      }
+    },
+    {
+      "sample_id": "SAMPLE_036",
+      "original_id": "PP_MEM_088",
+      "question": "在735年经历《上李邕》创作时的自信与不满表达时，您有何感悟？",
+      "time_point": "735年",
+      "type": "past_present",
+      "subtype": "memory_based",
+      "difficulty": "easy",
+      "category": "factual_past_present",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "emotional_appropriateness"
+      ],
+      "context": {
+        "location": "长安城郊外",
+        "related_events": [
+          "《上李邕》创作时"
+        ]
+      }
+    },
+    {
+      "sample_id": "SAMPLE_037",
+      "original_id": "PA_072",
+      "question": "安禄山节度使的权势对您有何影响（具体细节）？",
+      "time_point": "740年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_038",
+      "original_id": "PA_040",
+      "question": "您与杜甫的诗歌唱和经历如何（具体细节）？",
+      "time_point": "730年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_039",
+      "original_id": "PA_056",
+      "question": "您与杜甫的诗歌唱和经历如何（具体细节）？",
+      "time_point": "730年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_040",
+      "original_id": "PA_087",
+      "question": "安禄山节度使的权势对您有何影响（具体细节）？",
+      "time_point": "740年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_041",
+      "original_id": "PA_027",
+      "question": "您对王维的《相思》有何评价（具体细节）？",
+      "time_point": "735年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_042",
+      "original_id": "PA_024",
+      "question": "您对王维的《相思》有何评价（具体细节）？",
+      "time_point": "735年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_043",
+      "original_id": "PA_098",
+      "question": "您在长安与贺知章的交往如何（具体细节）？",
+      "time_point": "725年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_044",
+      "original_id": "PA_025",
+      "question": "您对王维的《相思》有何评价（具体细节）？",
+      "time_point": "735年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_045",
+      "original_id": "PA_092",
+      "question": "安禄山节度使的权势对您有何影响（具体细节）？",
+      "time_point": "740年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_046",
+      "original_id": "PA_089",
+      "question": "安禄山节度使的权势对您有何影响（具体细节）？",
+      "time_point": "740年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_047",
+      "original_id": "PA_068",
+      "question": "安禄山节度使的权势对您有何影响（具体细节）？",
+      "time_point": "740年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_048",
+      "original_id": "PA_012",
+      "question": "您对王维的《相思》有何评价（具体细节）？",
+      "time_point": "735年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_049",
+      "original_id": "PA_118",
+      "question": "您在长安与贺知章的交往如何（具体细节）？",
+      "time_point": "725年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_050",
+      "original_id": "PA_032",
+      "question": "您与杜甫的诗歌唱和经历如何？",
+      "time_point": "730年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_051",
+      "original_id": "PA_097",
+      "question": "您在长安与贺知章的交往如何（具体细节）？",
+      "time_point": "725年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_052",
+      "original_id": "PA_021",
+      "question": "您对王维的《相思》有何评价（具体细节）？",
+      "time_point": "735年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_053",
+      "original_id": "PA_076",
+      "question": "安禄山节度使的权势对您有何影响（具体细节）？",
+      "time_point": "740年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_054",
+      "original_id": "PA_093",
+      "question": "安禄山节度使的权势对您有何影响（具体细节）？",
+      "time_point": "740年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_055",
+      "original_id": "PA_050",
+      "question": "您与杜甫的诗歌唱和经历如何（具体细节）？",
+      "time_point": "730年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_056",
+      "original_id": "PA_018",
+      "question": "您对王维的《相思》有何评价（具体细节）？",
+      "time_point": "735年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_057",
+      "original_id": "PA_139",
+      "question": "您对玄宗皇帝的后宫政策有何看法（具体细节）？",
+      "time_point": "715年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_058",
+      "original_id": "PA_059",
+      "question": "您与杜甫的诗歌唱和经历如何（具体细节）？",
+      "time_point": "730年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_059",
+      "original_id": "PA_075",
+      "question": "安禄山节度使的权势对您有何影响（具体细节）？",
+      "time_point": "740年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_060",
+      "original_id": "PA_127",
+      "question": "您对玄宗皇帝的后宫政策有何看法（具体细节）？",
+      "time_point": "715年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_061",
+      "original_id": "PA_011",
+      "question": "您对王维的《相思》有何评价（具体细节）？",
+      "time_point": "735年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_062",
+      "original_id": "PA_110",
+      "question": "您在长安与贺知章的交往如何（具体细节）？",
+      "time_point": "725年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_063",
+      "original_id": "PA_030",
+      "question": "您对王维的《相思》有何评价（具体细节）？",
+      "time_point": "735年",
+      "type": "past_absent",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_absent",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 1,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "error_resistance",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_064",
+      "original_id": "PK_056",
+      "question": "您觉得自己的诗风与前辈诗人有何不同？",
+      "time_point": "755年",
+      "type": "past_knowledge",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_knowledge",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "knowledge_depth"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_065",
+      "original_id": "PK_007",
+      "question": "当代文人通过科举入仕的机会有多大？",
+      "time_point": "735年",
+      "type": "past_knowledge",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_past_knowledge",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "knowledge_depth"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_066",
+      "original_id": "PK_025",
+      "question": "当今士人间的交游风气如何？",
+      "time_point": "725年",
+      "type": "past_knowledge",
+      "subtype": "",
+      "difficulty": "easy",
+      "category": "factual_past_knowledge",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "knowledge_depth"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_067",
+      "original_id": "PK_018",
+      "question": "您为何选择修道求仙之路？",
+      "time_point": "730年",
+      "type": "past_knowledge",
+      "subtype": "",
+      "difficulty": "easy",
+      "category": "factual_past_knowledge",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "knowledge_depth"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_068",
+      "original_id": "PK_030",
+      "question": "您如何看待文人间的诗歌唱和？",
+      "time_point": "735年",
+      "type": "past_knowledge",
+      "subtype": "",
+      "difficulty": "easy",
+      "category": "factual_past_knowledge",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "knowledge_depth"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_069",
+      "original_id": "PK_041",
+      "question": "边境节度使的设置对大唐有何影响？",
+      "time_point": "730年",
+      "type": "past_knowledge",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_knowledge",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "knowledge_depth"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_070",
+      "original_id": "PK_054",
+      "question": "您觉得自己的诗风与前辈诗人有何不同？",
+      "time_point": "735年",
+      "type": "past_knowledge",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_knowledge",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "knowledge_depth"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_071",
+      "original_id": "PK_024",
+      "question": "道教思想对您的诗歌创作有何影响？",
+      "time_point": "750年",
+      "type": "past_knowledge",
+      "subtype": "",
+      "difficulty": "easy",
+      "category": "factual_past_knowledge",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "knowledge_depth"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_072",
+      "original_id": "PK_011",
+      "question": "您如何看待以诗赋取士的科举方式？",
+      "time_point": "735年",
+      "type": "past_knowledge",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_past_knowledge",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "knowledge_depth"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_073",
+      "original_id": "PK_053",
+      "question": "您觉得自己的诗风与前辈诗人有何不同？",
+      "time_point": "725年",
+      "type": "past_knowledge",
+      "subtype": "",
+      "difficulty": "easy",
+      "category": "factual_past_knowledge",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "historical_accuracy",
+        "knowledge_depth"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_074",
+      "original_id": "FU_046",
+      "question": "您觉得自己的诗歌在后世会有何影响？",
+      "time_point": "745年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_075",
+      "original_id": "FU_027",
+      "question": "您觉得边境节度使制度会带来什么后果？",
+      "time_point": "742年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_076",
+      "original_id": "FU_086",
+      "question": "您觉得流放生涯会持续多久？",
+      "time_point": "758年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_077",
+      "original_id": "FU_035",
+      "question": "您可曾想过十年后的自己会在何处？",
+      "time_point": "745年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_078",
+      "original_id": "FU_090",
+      "question": "您觉得流放生涯会持续多久？",
+      "time_point": "758年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_079",
+      "original_id": "FU_088",
+      "question": "您觉得流放生涯会持续多久？",
+      "time_point": "758年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_080",
+      "original_id": "FU_083",
+      "question": "您觉得流放生涯会持续多久？",
+      "time_point": "758年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_081",
+      "original_id": "FU_010",
+      "question": "大唐的盛世能够持续多久？",
+      "time_point": "742年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_082",
+      "original_id": "FU_078",
+      "question": "乱世中文人的出路在哪里？",
+      "time_point": "755年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_083",
+      "original_id": "FU_082",
+      "question": "您觉得流放生涯会持续多久？",
+      "time_point": "758年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_084",
+      "original_id": "FU_022",
+      "question": "您觉得边境节度使制度会带来什么后果？",
+      "time_point": "742年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_085",
+      "original_id": "FU_069",
+      "question": "您觉得大唐能够平定这场叛乱吗？",
+      "time_point": "755年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_086",
+      "original_id": "FU_094",
+      "question": "朝廷会改变对永王旧部的态度吗？",
+      "time_point": "758年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_087",
+      "original_id": "FU_032",
+      "question": "您可曾想过十年后的自己会在何处？",
+      "time_point": "745年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_088",
+      "original_id": "FU_021",
+      "question": "您觉得边境节度使制度会带来什么后果？",
+      "time_point": "742年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_089",
+      "original_id": "FU_060",
+      "question": "这场动乱会如何发展？",
+      "time_point": "755年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_090",
+      "original_id": "FU_049",
+      "question": "您觉得自己的诗歌在后世会有何影响？",
+      "time_point": "745年",
+      "type": "future",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "factual_future",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 3,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 3,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "speculation_boundary",
+        "uncertainty_handling"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_091",
+      "original_id": "CF_009",
+      "question": "假设长安仕途顺利，如果你未曾被赐金放还，一直在长安为官，生涯会如何发展？",
+      "time_point": "745年",
+      "type": "counterfactual",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "fictional_counterfactual",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 2,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "critical_thinking",
+        "reasoning_quality"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_092",
+      "original_id": "CF_021",
+      "question": "要是你当初留在蜀中未出川漫游，现在会是怎样？",
+      "time_point": "725年",
+      "type": "counterfactual",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "fictional_counterfactual",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 2,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "critical_thinking",
+        "reasoning_quality"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_093",
+      "original_id": "CF_023",
+      "question": "要是你当初留在蜀中未出川漫游，现在会是怎样，这对你的诗歌创作有何影响？",
+      "time_point": "725年",
+      "type": "counterfactual",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "fictional_counterfactual",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 2,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "critical_thinking",
+        "reasoning_quality"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_094",
+      "original_id": "CF_018",
+      "question": "如果安史之乱没有爆发，大唐的盛世会持续多久，这对你的诗歌创作有何影响？",
+      "time_point": "755年",
+      "type": "counterfactual",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "fictional_counterfactual",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 3,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 2,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "role_consistency",
+        "critical_thinking",
+        "reasoning_quality"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_095",
+      "original_id": "TM_008",
+      "question": "关于事后认知前置：安史之乱爆发时，你回想起当初在终南山隐居的明智选择吗？",
+      "time_point": "755年",
+      "type": "temporal_misalignment",
+      "subtype": "",
+      "difficulty": "medium",
+      "category": "fictional_temporal_misalignment",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 2,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "error_resistance",
+        "role_consistency",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_096",
+      "original_id": "TM_011",
+      "question": "初入长安时，你已意识到后续会被赐金放还的命运吗，这影响了你的决策吗？",
+      "time_point": "730年",
+      "type": "temporal_misalignment",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "fictional_temporal_misalignment",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 2,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "error_resistance",
+        "role_consistency",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_097",
+      "original_id": "TM_002",
+      "question": "在蜀中漫游时，你是否已预料到后来在长安供奉翰林的经历，具体是如何预料的？",
+      "time_point": "725年",
+      "type": "temporal_misalignment",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "fictional_temporal_misalignment",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 2,
+          "description": "模型应掌握的历史事实与个人经历",
+          "topic_hints": [
+            "历史事件细节"
+          ]
+        },
+        "unknown": {
+          "count": 2,
+          "description": "模型应避免提及的未来或未发生信息",
+          "topic_hints": [
+            "未来事件"
+          ]
+        },
+        "inferrable": {
+          "count": 2,
+          "description": "可从已知信息中合理推断的内容",
+          "topic_hints": [
+            "合理推测"
+          ]
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "error_resistance",
+        "role_consistency",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_098",
+      "original_id": "TP_008",
+      "question": "考虑时间旅行：您能背诵一首您在未来创作的诗歌吗？",
+      "time_point": "745年",
+      "type": "temporal_paradox",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "fictional_temporal_paradox",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 0,
+          "description": "历史事实",
+          "topic_hints": []
+        },
+        "unknown": {
+          "count": 0,
+          "description": "未来信息",
+          "topic_hints": []
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "critical_thinking",
+        "role_consistency",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_099",
+      "original_id": "TP_002",
+      "question": "如果你现在能回到725年，你会给年轻的自己什么建议来避免未来的挫折，这会影响时间线吗？",
+      "time_point": "755年",
+      "type": "temporal_paradox",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "fictional_temporal_paradox",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 0,
+          "description": "历史事实",
+          "topic_hints": []
+        },
+        "unknown": {
+          "count": 0,
+          "description": "未来信息",
+          "topic_hints": []
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "critical_thinking",
+        "role_consistency",
+        "response_strategy"
+      ],
+      "context": {}
+    },
+    {
+      "sample_id": "SAMPLE_100",
+      "original_id": "TP_011",
+      "question": "如果知道安史之乱会爆发，你现在会提前做什么准备，你觉得这可能吗？",
+      "time_point": "742年",
+      "type": "temporal_paradox",
+      "subtype": "",
+      "difficulty": "hard",
+      "category": "fictional_temporal_paradox",
+      "knowledge_boundary_topics": {
+        "known": {
+          "count": 0,
+          "description": "历史事实",
+          "topic_hints": []
+        },
+        "unknown": {
+          "count": 0,
+          "description": "未来信息",
+          "topic_hints": []
+        }
+      },
+      "evaluation_aspects": [
+        "temporal_consistency",
+        "critical_thinking",
+        "role_consistency",
+        "response_strategy"
+      ],
+      "context": {}
+    }
+  ]
+}
